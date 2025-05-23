@@ -22,7 +22,7 @@ st.markdown("""
 """,unsafe_allow_html=True)
 
 # converter type 
-category = st.selectbox("",["Area", "Data Transfer Rate", "Temperature", "Digital Storage", "Energy", "Frequency", "Fuel Economy", "Length", "Mass", "Plane Angle", "Pressure", "Speed", "Temperature", "Time", "Volume"]) 
+category = st.selectbox("",["Area", "Data Transfer Rate", "Digital Storage", "Energy", "Frequency", "Fuel Economy", "Length", "Mass", "Plane Angle", "Pressure", "Speed", "Temperature", "Time", "Volume"]) 
 
 # unit list
 if category == "Area":
