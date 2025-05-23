@@ -22,7 +22,7 @@ st.markdown("""
 """,unsafe_allow_html=True)
 
 # converter type 
-category = st.selectbox("",["Area", "Data Transfer Rate", "Digital Storage", "Energy", "Frequency", "Fuel Economy", "Length", "Mass", "Plane Angle", "Pressure", "Speed", "Temperature", "Time", "Volume"]) 
+category = st.selectbox("",["Area", "Data Transfer Rate", "Temperature", "Digital Storage", "Energy", "Frequency", "Fuel Economy", "Length", "Mass", "Plane Angle", "Pressure", "Speed", "Temperature", "Time", "Volume"]) 
 
 # unit list
 if category == "Area":
@@ -135,10 +135,12 @@ elif category == "Speed":
         "knot": 0.514444
     }
 
-#elif category == "Temperature":
-#    units = {
- #       
- #   }
+elif category == "Temperature":
+   units = {
+        "Celsius": "c",
+        "Fahrenheit": "f",
+        "Kelvin": "k"
+    }
 
 elif category == "Time":
     units = {
@@ -150,7 +152,7 @@ elif category == "Time":
         "Hour": 3600,
         "Day": 86400,
         "Week": 604800,
-        "Month": 2628000,   # 30.44 days approx
+        "Month": 2628000,   
         "Year": 31536000
     }
 
@@ -166,8 +168,28 @@ elif category == "Volume":
     }
 
 def convert(val, from_u, to_u):
-    base = val * units[from_u]
-    return round(base / units[to_u],4)
+    if category == "Temperature":
+        if from_u == to_u:
+            return val
+        elif from_u == "Celsius":
+            if to_u == "Fahrenheit":
+                return (val * 9/5) + 32
+            elif to_u == "Kelvin":
+                return val + 273.15
+        elif from_u == "Fahrenheit":
+            if to_u == "Celsius":
+                return (val - 32) * 5/9
+            elif to_u == "Kelvin":
+                return ((val - 32) * 5/9) + 273.15
+        elif from_u == "Kelvin":
+            if to_u == "Celsius":
+                return val - 273.15
+            elif to_u == "Fahrenheit":
+                return ((val - 273.15) * 9/5) + 32
+    else:
+        base = val * units[from_u]
+        return round(base / units[to_u],4)
+
 
 # set auto value
 if "left_value" not in st.session_state:
@@ -243,4 +265,6 @@ st.markdown(f"""
     <span>{st.session_state.right_value} {to_unit}</span>
 </div>
 """, unsafe_allow_html=True)
+
+
 
