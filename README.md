@@ -33,4 +33,4 @@ This project is a powerful and user-friendly Unit Converter built using [Streaml
 
 ## 👤 Author
 
-Made with ❤️ by [Sohaib Shahzad](https://github.com/MSohaibShahzad)
+Made by [Sohaib Shahzad](https://github.com/MSohaibShahzad)
