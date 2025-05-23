@@ -5,7 +5,7 @@ This project is a powerful and user-friendly Unit Converter built using [Streaml
 ## 🚀 Features
 
 - 🔁 Real-time updates: Convert values as you type
-- 📏 Supports 14+ unit categories
+- 📏 Supports 14+ unit categories 
 - 🌡 Accurate temperature conversions using formulas
 - 💡 Auto-switch logic for input boxes
 - ✨ Responsive two-column layout with modern styling
